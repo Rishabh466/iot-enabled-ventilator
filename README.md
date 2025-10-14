@@ -40,22 +40,22 @@ Finally, pressing the stop button halts the ventilation cycle, saving the patien
 
 
 ## Applications
-**Emergency Healthcare - Can be deployed in emergency situations like pandemics or natural disasters, where traditional ventilators may be unavailable.**
-Home Healthcare - Ideal for patients requiring long-term respiratory support, allowing them to be monitored remotely by healthcare professionals while staying at home.
-Medical Research and Education - Useful in research and educational institutions for studying respiratory therapy, ventilator technologies, and IoT integration in medical devices.
-Military and Remote Operations - Useful for military medical teams operating in remote or conflict zones where conventional ventilators are unavailable or impractical to transport.
-Veterinary Care - Could be adapted for use in veterinary hospitals, providing respiratory support for animals during surgery or in emergency cases.
+- **Emergency Healthcare** - Can be deployed in emergency situations like pandemics or natural disasters, where traditional ventilators may be unavailable.
+- **Home Healthcare** - Ideal for patients requiring long-term respiratory support, allowing them to be monitored remotely by healthcare professionals while staying at home.
+- **Medical Research and Education** - Useful in research and educational institutions for studying respiratory therapy, ventilator technologies, and IoT integration in medical devices.
+- **Military and Remote Operations** - Useful for military medical teams operating in remote or conflict zones where conventional ventilators are unavailable or impractical to transport.
+- **Veterinary Care** - Could be adapted for use in veterinary hospitals, providing respiratory support for animals during surgery or in emergency cases.
 
 
 ---
 
 
 ## Advantages
-Cost Effective - Built using affordable and easily available components like Arduino, ESP8266, and a silicone ventilator bag, significantly reducing the overall cost compared to commercial ventilators.
-Portable and Lightweight - Due to its compact design, the ventilator is easily portable and can be used in mobile healthcare units, field hospitals, or remote settings.
-Energy Efficient - The ventilator can be powered by a standard 5V DC power supply, and with a battery backup, it can continue functioning in the event of a power outage, ideal for use in disaster-prone areas.
-Easy to Build and Maintain - The system uses off-the-shelf parts that are widely available, making it accessible for technicians or makers to assemble and maintain, even in resource-limited areas.
-User-Friendly - Simple to operate with a push-button start/stop mechanism and intuitive controls, allowing quick deployment in emergency situations.
+- **Cost Effective** - Built using affordable and easily available components like Arduino, ESP8266, and a silicone ventilator bag, significantly reducing the overall cost compared to commercial ventilators.
+- **Portable and Lightweight** - Due to its compact design, the ventilator is easily portable and can be used in mobile healthcare units, field hospitals, or remote settings.
+- **Energy Efficient** - The ventilator can be powered by a standard 5V DC power supply, and with a battery backup, it can continue functioning in the event of a power outage, ideal for use in disaster-prone areas.
+- **Easy to Build and Maintain** - The system uses off-the-shelf parts that are widely available, making it accessible for technicians or makers to assemble and maintain, even in resource-limited areas.
+- **User-Friendly** - Simple to operate with a push-button start/stop mechanism and intuitive controls, allowing quick deployment in emergency situations.
 
 
 ---
