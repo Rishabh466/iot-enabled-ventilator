@@ -1,14 +1,13 @@
 # IoT-Enabled Smart Ventilator
 
-## 🧭 Project Overview
-During the COVID-19 pandemic, ventilator shortages highlighted the need for **low-cost, reliable, and remotely monitorable systems**.  
-This project presents an **IoT-enabled ventilator prototype** that can automatically regulate airflow pressure using sensor feedback and send real-time patient data (SpO₂, BPM, air pressure) to a cloud dashboard.
+## Introduction
+In recent years, the need for affordable, portable, and easily accessible medical devices has surged, particularly in response to global health crises such as the COVID-19 pandemic. Among these critical devices, ventilators have played a key role in saving lives by supporting patients with respiratory difficulties. This project presents a low-cost, Arduino-based ventilator, aimed at providing essential life support for patients with compromised respiratory systems.
+<img width="8010" height="88" alt="image" src="https://github.com/user-attachments/assets/514322ba-357e-4e7a-ba74-ce85ddef0138" />
 
-The ventilator uses an **ESP32 microcontroller** for data acquisition and control, a **PID-based closed-loop algorithm** for pressure regulation, and **MQTT communication** for IoT connectivity.
 
 ---
 
-## ⚙️ System Architecture
+## System Architecture
 
 ### 🧩 Hardware Components
 | Component | Function |
