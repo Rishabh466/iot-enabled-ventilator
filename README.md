@@ -66,6 +66,15 @@ This project presents the design and working of a low-cost, IoT-enabled ventilat
 The system controls the flow of air or oxygen into the patient's lungs by simulating natural breathing cycles. Real-time monitoring, remote data transmission, and alerts are enabled through an IoT platform, allowing healthcare providers to monitor the patient from a distance.
 This ventilator is ideal for use in emergency healthcare, low-resource settings, home healthcare, and portable medical applications, offering a highly accessible and scalable solution for life-saving respiratory support.
 
+---
+
+
+## Author
+**Rishabh Singh Rawat**  
+B.Tech Electronics Engineering (IoT)  
+JC Bose Institute of Technology, YMCA  
+Intern @ BotLab Dynamics | Ahuja Radios  
+
 
 
 
