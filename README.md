@@ -40,7 +40,7 @@ Finally, pressing the stop button halts the ventilation cycle, saving the patien
 
 
 ## Applications
-Emergency Healthcare - Can be deployed in emergency situations like pandemics or natural disasters, where traditional ventilators may be unavailable.
+**Emergency Healthcare - Can be deployed in emergency situations like pandemics or natural disasters, where traditional ventilators may be unavailable.**
 Home Healthcare - Ideal for patients requiring long-term respiratory support, allowing them to be monitored remotely by healthcare professionals while staying at home.
 Medical Research and Education - Useful in research and educational institutions for studying respiratory therapy, ventilator technologies, and IoT integration in medical devices.
 Military and Remote Operations - Useful for military medical teams operating in remote or conflict zones where conventional ventilators are unavailable or impractical to transport.
