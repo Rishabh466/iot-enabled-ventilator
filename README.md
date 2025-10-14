@@ -1,5 +1,3 @@
-<img width="3714" height="372" alt="image" src="https://github.com/user-attachments/assets/fd1b9d2b-d5f2-4ab4-8845-370b6474b16a" /># IoT-Enabled Smart Ventilator
-
 ## Introduction
 In recent years, the need for affordable, portable, and easily accessible medical devices has surged, particularly in response to global health crises such as the COVID-19 pandemic. Among these critical devices, ventilators have played a key role in saving lives by supporting patients with respiratory difficulties. This project presents a low-cost, Arduino-based ventilator, aimed at providing essential life support for patients with compromised respiratory systems.
 
