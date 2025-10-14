@@ -1,4 +1,4 @@
-# IoT-Enabled Smart Ventilator
+<img width="3714" height="372" alt="image" src="https://github.com/user-attachments/assets/fd1b9d2b-d5f2-4ab4-8845-370b6474b16a" /># IoT-Enabled Smart Ventilator
 
 ## Introduction
 In recent years, the need for affordable, portable, and easily accessible medical devices has surged, particularly in response to global health crises such as the COVID-19 pandemic. Among these critical devices, ventilators have played a key role in saving lives by supporting patients with respiratory difficulties. This project presents a low-cost, Arduino-based ventilator, aimed at providing essential life support for patients with compromised respiratory systems.
@@ -26,20 +26,49 @@ Finally, pressing the stop button halts the ventilation cycle, saving the patien
 ## Hardware Components
 | Component | Function |
 |------------|-----------|
-| **ESP32 / Arduino** | Main controller handling all I/O operations |
-| **Pressure Sensor (MPX5010)** | Measures airway pressure |
-| **Flow Sensor (FS300A)** | Measures airflow rate |
-| **Pulse Oximeter (MAX30100)** | Measures SpO₂ and BPM |
-| **Motor Driver (L298N)** | Controls blower or motorized valve |
-| **Display (OLED 0.96”)** | Shows vitals locally |
-| **Wi-Fi Module (ESP32 built-in)** | Sends data to IoT dashboard via MQTT |
+| **Internet of Things (ESP8266)** | For sending data to a locally hosted wbesite |
+| **Microcontroller (Arduino Nano)** | Main controller/CPU |
+| **LCD Display (20X4)** | Shows vitals locally |
+| **Potentiometer (10Kohm)** | For selecting the age group |
+| **Servo Motor (MG995)** | For driving the robotic arm |
+| **Vital Sensor (MAX30100)** | Measures vitals |
+| **Flow Sensor (HX710B)** | Measures airflow rate |
+| **Ventilator Bag** | For pumping air into lungs |
+| **Metal Rod and Plate** | Acts as robotic arm |
+| **12V 2A Power Supply** | For powering everything |
+
 
 ---
 
-## 📡 Working Principle
-The ventilator maintains a **target pressure** within the patient airway.  
-It continuously samples sensor readings, calculates error against the setpoint, and drives the blower motor using a PID algorithm.  
-All vital parameters are sent to an IoT dashboard for monitoring and logging.
 
-### 🔁 Control Flow
+## Applications
+Emergency Healthcare - Can be deployed in emergency situations like pandemics or natural disasters, where traditional ventilators may be unavailable.
+Home Healthcare - Ideal for patients requiring long-term respiratory support, allowing them to be monitored remotely by healthcare professionals while staying at home.
+Medical Research and Education - Useful in research and educational institutions for studying respiratory therapy, ventilator technologies, and IoT integration in medical devices.
+Military and Remote Operations - Useful for military medical teams operating in remote or conflict zones where conventional ventilators are unavailable or impractical to transport.
+Veterinary Care - Could be adapted for use in veterinary hospitals, providing respiratory support for animals during surgery or in emergency cases.
+
+
+---
+
+
+## Advantages
+Cost Effective - Built using affordable and easily available components like Arduino, ESP8266, and a silicone ventilator bag, significantly reducing the overall cost compared to commercial ventilators.
+Portable and Lightweight - Due to its compact design, the ventilator is easily portable and can be used in mobile healthcare units, field hospitals, or remote settings.
+Energy Efficient - The ventilator can be powered by a standard 5V DC power supply, and with a battery backup, it can continue functioning in the event of a power outage, ideal for use in disaster-prone areas.
+Easy to Build and Maintain - The system uses off-the-shelf parts that are widely available, making it accessible for technicians or makers to assemble and maintain, even in resource-limited areas.
+User-Friendly - Simple to operate with a push-button start/stop mechanism and intuitive controls, allowing quick deployment in emergency situations.
+
+
+---
+
+
+## Summary
+This project presents the design and working of a low-cost, IoT-enabled ventilator using Arduino technology. The ventilator provides a safe, reliable, and portable solution for patients with respiratory difficulties. Key components include an Arduino microcontroller, pressure sensors, SpO2 sensor, servo motor, and ESP8266 Wi-Fi module for IoT connectivity.
+The system controls the flow of air or oxygen into the patient's lungs by simulating natural breathing cycles. Real-time monitoring, remote data transmission, and alerts are enabled through an IoT platform, allowing healthcare providers to monitor the patient from a distance.
+This ventilator is ideal for use in emergency healthcare, low-resource settings, home healthcare, and portable medical applications, offering a highly accessible and scalable solution for life-saving respiratory support.
+
+
+
+
 
