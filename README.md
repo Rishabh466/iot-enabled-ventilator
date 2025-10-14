@@ -20,8 +20,10 @@ The system allows manual adjustments via a potentiometer for air pressure and vo
 Finally, pressing the stop button halts the ventilation cycle, saving the patient’s vitals to the cloud for record-keeping.
 
 
+---
 
-### 🧩 Hardware Components
+
+## Hardware Components
 | Component | Function |
 |------------|-----------|
 | **ESP32 / Arduino** | Main controller handling all I/O operations |
