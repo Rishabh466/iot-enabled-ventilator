@@ -1,0 +1,117 @@
+#include <Servo.h>
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+#include "MAX30100_PulseOximeter.h"
+
+// --- Pin Configuration ---
+#define SERVO_PIN 9
+#define POT_PIN A0
+#define HX710B_DATA A1
+#define HX710B_CLK A2
+
+// --- Global Objects ---
+Servo ventilatorServo;
+LiquidCrystal_I2C lcd(0x27, 20, 4);
+PulseOximeter pox;
+
+// --- Timing and Control Variables ---
+unsigned long prevMillis = 0;
+int breathInterval = 3000;   // Default 3s per cycle
+int servoMin = 30;           // degrees (bag released)
+int servoMax = 120;          // degrees (bag pressed)
+bool inhale = true;
+
+// --- Sensor Variables ---
+float oxygenSat = 0.0;
+float bpm = 0.0;
+long flowRate = 0;
+
+// --- Function Prototypes ---
+void performBreathingCycle();
+void readVitals();
+void displayVitals();
+long readFlowSensor();
+void sendToESP();
+
+void setup() {
+  Serial.begin(9600);
+  ventilatorServo.attach(SERVO_PIN);
+  lcd.init();
+  lcd.backlight();
+  pox.begin();
+
+  lcd.setCursor(0, 0);
+  lcd.print("IOT Ventilator v1.0");
+  delay(1500);
+  lcd.clear();
+}
+
+void loop() {
+  // Adjust speed based on potentiometer (age group selection)
+  int potVal = analogRead(POT_PIN);
+  breathInterval = map(potVal, 0, 1023, 2500, 6000);  // 2.5s to 6s
+
+  performBreathingCycle();
+  readVitals();
+  displayVitals();
+  sendToESP();
+}
+
+// --- Core Breathing Cycle ---
+void performBreathingCycle() {
+  unsigned long currentMillis = millis();
+
+  if (currentMillis - prevMillis >= breathInterval) {
+    prevMillis = currentMillis;
+
+    if (inhale) {
+      ventilatorServo.write(servoMax);
+    } else {
+      ventilatorServo.write(servoMin);
+    }
+
+    inhale = !inhale;
+  }
+}
+
+// --- Read Sensor Data ---
+void readVitals() {
+  pox.update();
+  oxygenSat = pox.getSpO2();
+  bpm = pox.getHeartRate();
+  flowRate = readFlowSensor();
+}
+
+// --- Simple HX710B Flow Sensor Stub ---
+long readFlowSensor() {
+  // Replace this with actual HX710B read code if library used
+  long rawFlow = analogRead(HX710B_DATA);
+  return map(rawFlow, 0, 1023, 0, 100);
+}
+
+// --- Display on LCD ---
+void displayVitals() {
+  lcd.setCursor(0, 0);
+  lcd.print("SpO2: ");
+  lcd.print(oxygenSat);
+  lcd.print("%   ");
+
+  lcd.setCursor(0, 1);
+  lcd.print("BPM:  ");
+  lcd.print(bpm);
+  lcd.print("    ");
+
+  lcd.setCursor(0, 2);
+  lcd.print("Flow: ");
+  lcd.print(flowRate);
+  lcd.print(" L/min  ");
+}
+
+// --- Send Data to ESP8266 ---
+void sendToESP() {
+  Serial.print("{");
+  Serial.print("\"spo2\":"); Serial.print(oxygenSat); Serial.print(",");
+  Serial.print("\"bpm\":"); Serial.print(bpm); Serial.print(",");
+  Serial.print("\"flow\":"); Serial.print(flowRate);
+  Serial.println("}");
+}
