@@ -1,0 +1,60 @@
+#include <ESP8266WiFi.h>
+#include <ESP8266WebServer.h>
+#include <ArduinoJson.h>
+
+// --- WiFi Credentials ---
+const char* ssid = "Ventilator-AP";
+const char* password = "12345678";
+
+ESP8266WebServer server(80);
+
+// --- Variables for Data ---
+String incomingData;
+float spo2 = 0.0, bpm = 0.0, flow = 0.0;
+
+void setup() {
+  Serial.begin(9600);
+  WiFi.softAP(ssid, password);
+  IPAddress IP = WiFi.softAPIP();
+  Serial.println("Access Point started");
+  Serial.print("IP address: ");
+  Serial.println(IP);
+
+  // Route: Home page
+  server.on("/", handleRoot);
+  server.begin();
+  Serial.println("HTTP server started");
+}
+
+void loop() {
+  if (Serial.available()) {
+    incomingData = Serial.readStringUntil('\n');
+    parseIncomingJSON(incomingData);
+  }
+  server.handleClient();
+}
+
+// --- Parse incoming serial JSON ---
+void parseIncomingJSON(String payload) {
+  StaticJsonDocument<200> doc;
+  DeserializationError err = deserializeJson(doc, payload);
+  if (!err) {
+    spo2 = doc["spo2"];
+    bpm = doc["bpm"];
+    flow = doc["flow"];
+  }
+}
+
+// --- Serve HTML page ---
+void handleRoot() {
+  String html = "<!DOCTYPE html><html><head><meta http-equiv='refresh' content='2'/>"
+                "<title>Ventilator Dashboard</title>"
+                "<style>body{font-family:Arial;text-align:center;}"
+                "h1{color:#003366;} .data{font-size:1.5em;}</style></head><body>"
+                "<h1>IoT Ventilator Dashboard</h1>"
+                "<div class='data'>SpO2: " + String(spo2, 1) + "%</div>"
+                "<div class='data'>Heart Rate: " + String(bpm, 1) + " bpm</div>"
+                "<div class='data'>Flow Rate: " + String(flow, 1) + " L/min</div>"
+                "</body></html>";
+  server.send(200, "text/html", html);
+}
